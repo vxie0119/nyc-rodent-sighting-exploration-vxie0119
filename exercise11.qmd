@@ -48,7 +48,20 @@ closed_before_created
 ```
 
 3. How many agencies were this complain type reported to?
+
+```{python}
+unique_agencies = data['Agency'].nunique()
+unique_agencies
+```
+
 4. Summarize the missingess for each variable.
+
+```{python}
+missingness_sum = data.isnull().sum() 
+missingness_avg = data.isnull().mean() * 100
+missingness_sum, missingness_avg
+```
+
 5. Summarize a frequency table for the DESCRIPTOR variable, and summarize a cross table by year.
 6. Which types of ‘DESCRIPTOR’ do you think should be included if our interest is rodent sighting?
 7. Take a subset of the data with the descriptors you chose and summarize the response time by borough
