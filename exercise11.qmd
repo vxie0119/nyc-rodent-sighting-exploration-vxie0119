@@ -78,6 +78,7 @@ missingness_avg
 5. Summarize a frequency table for the DESCRIPTOR variable, and summarize a cross table by year.
 
 ```{python}
+
 # Frequency table
 descriptor_frequency = data['Descriptor'].value_counts()
 
@@ -85,10 +86,7 @@ descriptor_frequency = data['Descriptor'].value_counts()
 data['Year'] = data['Created Date'].dt.year
 descriptor_year_crosstab = pd.crosstab(data['Descriptor'], data['Year'])
 
-print("Frequency Table")
-descriptor_frequency 
-print("\nCross Table")
-descriptor_year_crosstab
+descriptor_frequency, descriptor_year_crosstab
 ```
 
 6. Which types of ‘DESCRIPTOR’ do you think should be included if our interest is rodent sighting?
