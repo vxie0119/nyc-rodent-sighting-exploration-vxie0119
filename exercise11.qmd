@@ -88,6 +88,6 @@ subset = data[data['Descriptor'].isin(selected)]
 
 # Summarization
 subset['Response Time'] = (subset['Closed Date'] - subset['Created Date']).dt.days
-response_time = subset.groupby('Borough')['Reponse Time'].mean().round(2)
+response_time = subset.groupby('Borough')['Response Time'].mean().round(2)
 response_time
 ```
