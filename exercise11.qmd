@@ -14,7 +14,8 @@ format:
 # **NYC Rats** {.unnumbered}
 
 Rats in NYC are widespread, as they are in many densely populated
-areas (https://en.wikipedia.org/wiki/Rats_in_New_York_City). As of 
+areas (https://en.wikipedia.org
+/wiki/Rats_in_New_York_City). As of 
 October 2023, NYC dropped from the 2nd to the 3rd places in the 
 annual ["rattiest city" list](https://www.orkin.com/press-room/top-rodent-infested-cities-2023#)
 released by a pest control company. In 
