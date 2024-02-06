@@ -38,6 +38,7 @@ data = pd.read_csv("data/rodent_2022-2023.csv")
 1. Are there any complains that are not closed yet?
 
 ```{python}
+# Sum of empty cells in Closed Date variable
 not_closed = data['Closed Date'].isna().sum()
 not_closed
 ```
@@ -59,6 +60,7 @@ closed_before_created
 3. How many agencies were this complain type reported to?
 
 ```{python}
+# Number of unique names in Agency variable
 unique_agencies = data['Agency'].nunique()
 unique_agencies
 ```
@@ -68,6 +70,7 @@ unique_agencies
 4. Summarize the missingess for each variable.
 
 ```{python}
+# Average percentage of missing cells for each variable
 missingness_avg = data.isnull().mean().round(4) * 100
 print("Average percentage of missing cells for each variable")
 missingness_avg
