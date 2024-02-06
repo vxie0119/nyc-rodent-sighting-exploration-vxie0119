@@ -24,6 +24,7 @@ Extract all the requests with complain type `Rodent`, created
 between January 1, 2022 and December 31, 2023. Save them into a 
 csv file named `rodent_2022-2023.csv`.
 
+
 **Data Initialization**
 
 ```{python}
@@ -41,7 +42,7 @@ not_closed = data['Closed Date'].isna().sum()
 not_closed
 ```
 
-*Answer:* We see that there are 2,787 instances where the complaints have not been closed yet.
+**Answer:** We see that there are 2,787 instances where the complaints have not been closed yet.
 
 2. Are there any complains with a closed data before the created date?
 
@@ -53,7 +54,7 @@ closed_before_created = data[data['Closed Date'] < data['Created Date']].shape[0
 closed_before_created
 ```
 
-*Answer:* There are no instances where the closed data is before the created data. This is a good sign as it shows the date data makes sense.
+**Answer:** There are no instances where the closed data is before the created data. This is a good sign as it shows the date data makes sense.
 
 3. How many agencies were this complain type reported to?
 
@@ -62,7 +63,7 @@ unique_agencies = data['Agency'].nunique()
 unique_agencies
 ```
 
-*Answer:* There was only one unique Agency which was the Department of Health and Mental Hygiene (DOHMH).
+**Answer:** There was only one unique Agency which was the Department of Health and Mental Hygiene (DOHMH).
 
 4. Summarize the missingess for each variable.
 
@@ -72,7 +73,7 @@ print("Average percentage of missing cells for each variable")
 missingness_avg
 ```
 
-*Answer:* From the table, there were many variables with a low missing percentage. The main variables with a high percentage were Facility Type, Due Date, Vehicle Type, Taxi Company Borough, Taxi Pick Up Location, Bridge Highway Name, Bridge Highway Direction, Road Ramp, and Bridge Highway Segment. A high percentage indicates that it was likely that the variable was not important to the overall dataset.
+**Answer:** From the table, there were many variables with a low missing percentage. The main variables with a high percentage were Facility Type, Due Date, Vehicle Type, Taxi Company Borough, Taxi Pick Up Location, Bridge Highway Name, Bridge Highway Direction, Road Ramp, and Bridge Highway Segment. A high percentage indicates that it was likely that the variable was not important to the overall dataset.
 
 5. Summarize a frequency table for the DESCRIPTOR variable, and summarize a cross table by year.
 
@@ -92,7 +93,7 @@ descriptor_year_crosstab
 
 6. Which types of ‘DESCRIPTOR’ do you think should be included if our interest is rodent sighting?
 
-*Answer:* If our interest is rodent sighting, the descriptors that should be included are "Mouse Sighting," "Rat Sighting," and possibly "Rodent Bite." The remaining descriptors "Signs of Rodents" and "Condition Attracting Rodents" do not specifically indicate that there was a rodent present.
+**Answer:** If our interest is rodent sighting, the descriptors that should be included are "Mouse Sighting," "Rat Sighting," and possibly "Rodent Bite." The remaining descriptors "Signs of Rodents" and "Condition Attracting Rodents" do not specifically indicate that there was a rodent present.
 
 7. Take a subset of the data with the descriptors you chose and summarize the response time by borough.
 
@@ -107,4 +108,4 @@ response_time = subset.groupby('Borough')['Response Time'].mean().round(2)
 response_time
 ```
 
-*Answer:* This analysis shows how Queens has one of the longest response times (in days) followed by Brooklyn. On the contrary, Bronx has the fastest response time with an average of 0.27 days. There is another variable called "Unspecified" which could indicate an unclosed complaint or another data errors.
+**Answer:** This analysis shows how Queens has one of the longest response times (in days) followed by Brooklyn. On the contrary, Bronx has the fastest response time with an average of 0.27 days. There is another variable called "Unspecified" which could indicate an unclosed complaint or another data errors.
