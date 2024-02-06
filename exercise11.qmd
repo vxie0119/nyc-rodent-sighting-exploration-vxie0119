@@ -58,10 +58,36 @@ unique_agencies
 
 ```{python}
 missingness_sum = data.isnull().sum() 
-missingness_avg = data.isnull().mean() * 100
+missingness_avg = data.isnull().mean().round(4) * 100
 missingness_sum, missingness_avg
 ```
 
 5. Summarize a frequency table for the DESCRIPTOR variable, and summarize a cross table by year.
+
+```{python}
+# Frequency table
+descriptor_frequency = data['Descriptor'].value_counts()
+
+# Cross Table by Year
+data['Year'] = data['Created Date'].dt.year
+descriptor_year_crosstab = pd.crosstab(data['Descriptor'], data['Year'])
+
+descriptor_frequency, descriptor_year_crosstab
+```
+
 6. Which types of ‘DESCRIPTOR’ do you think should be included if our interest is rodent sighting?
+
+If our interest is rodent sighting, the Descriptors that should be included are "Mouse Sighting," "Rat Sighting," and possibly "Rodent Bite."
+
 7. Take a subset of the data with the descriptors you chose and summarize the response time by borough
+
+```{python}
+selected = ['Rat Sighting', 'Mouse Sighting', 'Rodent Bite - PCS Only']
+subset = data[data['Descriptor'].isin(selected)]
+
+
+# Summarization
+subset['Response Time'] = (subset['Closed Date'] - subset['Created Date']).dt.days
+response_time = subset.groupby('Borough')['Reponse Time'].mean().round(2)
+response_time
+```
